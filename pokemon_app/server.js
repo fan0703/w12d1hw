@@ -15,6 +15,10 @@ app.get('/pokemon', (req, res)=>{
     // res.send(pokemon)
     res.render('Index', {pokemon: pokemon})
 })
+
+app.get('/pokemon/:id', (req, res)=>{
+    res.send(req.params.id)
+})
 app.listen(3001,()=>{
     console.log("listening")
 })
