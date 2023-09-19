@@ -9,6 +9,16 @@ class Index extends React. Component{
         return(
             <div>
                 <h1 style={myStyle}>See All The Pokemon!</h1>
+                <ul>
+                   {pokemon.map((pokemon, i)=>{
+                    return(
+                        <li>
+                            {pokemon.name.charAt(0).toUpperCase()+ pokemon.name.slice(1).toLowerCase()}
+                        </li>
+                    )
+
+                   })} 
+                </ul>
             </div>
 
         )
