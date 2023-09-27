@@ -5,18 +5,21 @@ const myStyle = {
 };
 class Index extends React.Component {
   render() {
-    const { pokemon } = this.props;
+    const pokemon = this.props.pokemon
     return (
       <div>
         <h1 style={myStyle}>See All The Pokemon!</h1>
         <ul>
-          {pokemon.map((pokemon, i) => {
+          {this.props.pokemon.map((pokemon, i) => {
             return (
-              <li>
-                <a href={`/pokemon/${i}`}>
+              <li key={i}>
+                <a href={`/pokemon/${pokemon._id}`}>
                   {pokemon.name.charAt(0).toUpperCase() +
                     pokemon.name.slice(1).toLowerCase()}
                 </a>
+                <form action={`/pokemon/${pokemon._id}?_method=DELETE`} method="POST">
+                  <input type="submit" value="DELETE"/>
+                </form>
               </li>
             );
           })}
